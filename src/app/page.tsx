@@ -46,7 +46,7 @@ export default function Home() {
     content_right_about: "ml-6 flex flex-col gap-2 lg:gap-4 text-xs md:text-sm",
     content_right_about_span: "text-textWhite",
     content_routeIcons:
-      "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-4 pr-4 md:pl-10 md:pr-10",
+      "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-4 pr-4 md:pl-10 md:pr-10 z-[3]",
     content_sasuke:
       "relative w-auto md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12",
   };

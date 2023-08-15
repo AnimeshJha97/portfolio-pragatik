@@ -354,7 +354,7 @@ const Projects = () => {
               </div>
             </div>
             {/* prev - next icons */}
-            <div className="fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-4 pr-4 md:pl-10 md:pr-10 z-0">
+            <div className="fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-4 pr-4 md:pl-10 md:pr-10 z-[3]">
               <Image
                 className={
                   pageRoute.prev !== 0

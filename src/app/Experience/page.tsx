@@ -14,6 +14,7 @@ import { storePage } from "../recoil/atoms/storePage";
 import { useRecoilState } from "recoil";
 import Sasuke from "@/components/Sasuke";
 import Title from "@/components/Title";
+import SkillBox from "@/components/SkillBox";
 
 interface SectionRefs {
   [key: string]: React.RefObject<HTMLDivElement>;
@@ -119,7 +120,7 @@ const Experience = () => {
       "ml-6 w-full flex flex-col w-[90%] gap-4 lg:gap-10 text-xs md:text-sm overflow-x-hidden pb-32",
     content_right_about_span: "text-textWhite",
     routeIcons:
-      "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-4 pr-4 md:pl-10 md:pr-10",
+      "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-4 pr-4 md:pl-10 md:pr-10 z-[3]",
     // content_sasuke:
     //   "relative w-auto md:h-[100vh] md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12",
   };
@@ -167,6 +168,7 @@ const Experience = () => {
   const sectionRefs: SectionRefs = {};
 
   workData.forEach((work) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     sectionRefs[work.name] = useRef<HTMLDivElement>(null);
   });
 
@@ -300,12 +302,7 @@ const Experience = () => {
                         {/* skills */}
                         <div className="flex flex-wrap items-center gap-3">
                           {work.skills.map((skill, i) => (
-                            <div
-                              key={i}
-                              className="p-[4px_16px] mt-2 bg-primary/30 text-primary rounded-[16px] text-xs hover:text-bgCol hover:bg-primary duration-500"
-                            >
-                              <p>{skill}</p>
-                            </div>
+                            <SkillBox key={i} skill={skill} />
                           ))}
                         </div>
                       </div>

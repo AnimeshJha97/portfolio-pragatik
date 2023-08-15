@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import GlobalRecoilRoot from "./recoilRoot/GlobalRecoilRoot";
+import Particle from "@/components/Particle";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,6 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-bgCol">
+        <div className="hidden md:block w-screen h-screen absolute top-0 left-0 overflow-hidden">
+          <Particle />
+        </div>
         <GlobalRecoilRoot>{children}</GlobalRecoilRoot>
       </body>
     </html>
