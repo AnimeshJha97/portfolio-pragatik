@@ -10,9 +10,9 @@ function Particle() {
     console.log(main);
     await loadFull(main);
   };
-  const particlesLoaded = (container: any) => {
-    console.log(container);
-  };
+  // const particlesLoaded = (container: any) => {
+  //   console.log(container);
+  // };
   const [isHovering, setIsHovering] = useState(true);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -26,9 +26,6 @@ function Particle() {
         display: "block",
         zIndex: 3,
       }}
-      //className=" z-30 border-4 border-gray-700 width-100 height-[1300px] top-30 relative display-block "
-      //onMouseEnter={() => setIsHovering(true)}
-      //onMouseLeave={() => setIsHovering(false)}
     >
       {isHovering && (
         <Particles
@@ -46,7 +43,7 @@ function Particle() {
             // border: "5px solid red"
           }}
           init={particlesInit}
-          Loaded={particlesLoaded}
+          // Loaded={particlesLoaded}
           options={{
             background: {
               color: "transparent",
@@ -62,21 +59,6 @@ function Particle() {
                     enable: true,
                     force: 60,
                     smooth: 10,
-                  },
-                  // background: {
-                  //   color: "##FFFF00"
-                  // },
-                  boundary: {
-                    width: 30,
-                    height: 30,
-                  },
-                  opacity: {
-                    value: 0.3,
-                  },
-                  particles: {
-                    color: {
-                      value: "#0000FF",
-                    },
                   },
                 },
                 resize: true,
@@ -96,7 +78,6 @@ function Particle() {
               retinaDetect: true,
             },
             particles: {
-              color: "#0000FF",
               polygon: {
                 nb_sides: 10,
               },
