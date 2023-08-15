@@ -195,7 +195,7 @@ const Projects = () => {
       config.transition = { duration: 0.5 };
     }
     setMotionConfig(config);
-  }, []);
+  }, [page, pageRoute.next]);
 
   useEffect(() => {
     setIsLoading(false);
@@ -212,6 +212,7 @@ const Projects = () => {
   const sectionRefs: SectionRefs = {};
 
   projectData.forEach((project) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     sectionRefs[project.id] = useRef<HTMLDivElement>(null);
   });
 

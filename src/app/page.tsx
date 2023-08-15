@@ -80,7 +80,8 @@ export default function Home() {
       config.transition = { duration: 0.5 };
     }
     setMotionConfig(config);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
 
   useEffect(() => {
     setIsLoading(false);

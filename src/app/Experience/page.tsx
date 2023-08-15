@@ -151,7 +151,7 @@ const Experience = () => {
       config.transition = { duration: 0.5 };
     }
     setMotionConfig(config);
-  }, []);
+  }, [page, pageRoute.next]);
 
   useEffect(() => {
     setIsLoading(false);
