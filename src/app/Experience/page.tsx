@@ -107,7 +107,7 @@ const Experience = () => {
     pageTitle_p: "text-textWhite text-base md:text-md font-medium",
     pageTitle_p_span: "text-textLight",
     content:
-      "text-textLight flex flex-col gap-2 lg:gap-12 lg:flex-row justify-between z-10",
+      "text-textLight flex flex-col gap-2 md:gap-12 md:flex-row justify-between relative z-[2]",
     content_left: "flex flex-col gap-2 md:gap-4",
     content_left_title:
       "text-md md:text-lg lg:text-xxl font-bold text-textWhite",
@@ -115,18 +115,17 @@ const Experience = () => {
       "text-sm md:text-base lg:text-md mb-4 font-medium text-textWhite",
     content_left_description: "text-xs md:text-sm",
     content_right:
-      "h-[80vh] overflow-scroll flex flex-col gap-2 md:gap-4 md:flex-[0.95] lg:flex-1 md:pr-12 lg:mt-24 md:pb-32",
+      "h-[80vh] flex flex-col gap-2 md:gap-6 md:flex-[0.95] md:pr-12 md:mt-16 lg:mt-24 md:pb-16",
     content_right_about:
-      "ml-6 w-full flex flex-col w-[90%] gap-4 lg:gap-10 text-xs md:text-sm overflow-x-hidden pb-32",
+      "ml-6 flex flex-col gap-6 lg:gap-10 text-xs md:text-sm overflow-x-hidden md:pb-[160px]",
     content_right_about_span: "text-textWhite",
     routeIcons:
-      "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-4 pr-4 md:pl-10 md:pr-10 z-[3]",
+      "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-3 pr-3 md:pl-8 md:pr-8",
     // content_sasuke:
     //   "relative w-auto md:h-[100vh] md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12",
   };
   // useStates
   const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
-  const [eyeballsPosition, setEyeballsPosition] = useState({ left: 0, top: 0 });
   const [page, setPage] = useRecoilState(storePage);
   const [motionConfig, setMotionConfig] = useState({
     initial: { opacity: 0, x: 200 },
@@ -217,8 +216,10 @@ const Experience = () => {
           transition={motionConfig.transition}
         >
           <div className={styles.container} onMouseMove={handleMouseMove}>
-            {/* page title */}
-            <Title pageNo={"02"} title={"Experience"} />
+            <div className="z-[3] w-full">
+              {/* page title */}
+              <Title pageNo={"02"} title={"Experience"} />
+            </div>
 
             {/* content */}
             <div className={styles.content}>
@@ -248,8 +249,8 @@ const Experience = () => {
                           <p
                             className={
                               selectedWork === work.name
-                                ? "text-textWhite"
-                                : "group-hover:text-textWhite"
+                                ? "text-xs md:text-sm text-textWhite"
+                                : "text-xs md:text-sm group-hover:text-textWhite"
                             }
                           >
                             {work.name}
@@ -268,44 +269,46 @@ const Experience = () => {
                 <p className="text-xs md:text-sm text-primary">
                   {"<experience>"}
                 </p>
+
                 <div className={styles.content_right_about}>
-                  {workData.map((work) => (
-                    <div
-                      ref={sectionRefs[work.name]}
-                      key={work.name}
-                      className="flex flex-col md:flex-row items-start md:gap-8 gap-1"
-                    >
-                      {/* duration */}
-                      <div className="flex gap-2 items-center pt-2">
-                        {work.year.from}{" "}
-                        <div className="h-[1px] w-4 bg-textLight" />{" "}
-                        {work.year.to}
-                      </div>
-                      {/* content */}
-                      <div className="flex flex-col gap-2">
-                        {/* company title */}
-                        <div>
-                          <p className="text-sm md:text-md text-textWhite font-bold">
-                            {work.name}
-                          </p>
-                          <p className="text-textWhite">{work.subTitle}</p>
+                  {workData.map((work, i) => (
+                    <div ref={sectionRefs[work.name]} key={work.name}>
+                      <div className="flex flex-col md:flex-row items-start md:gap-8 gap-1">
+                        {/* duration */}
+                        <div className="flex gap-2 items-center pt-2">
+                          {work.year.from}{" "}
+                          <div className="h-[1px] w-4 bg-textLight" />{" "}
+                          {work.year.to}
                         </div>
-                        {/* points */}
+                        {/* content */}
                         <div className="flex flex-col gap-2">
-                          {work.points.map((point, i: number) => (
-                            <div key={i} className="flex gap-4 items-center">
-                              <div className=" w-2 h-2 bg-textLight rounded-full" />
-                              <p className="flex-1">{point}</p>
-                            </div>
-                          ))}
-                        </div>
-                        {/* skills */}
-                        <div className="flex flex-wrap items-center gap-3">
-                          {work.skills.map((skill, i) => (
-                            <SkillBox key={i} skill={skill} />
-                          ))}
+                          {/* company title */}
+                          <div>
+                            <p className="text-sm md:text-md text-textWhite font-bold">
+                              {work.name}
+                            </p>
+                            <p className="text-textWhite">{work.subTitle}</p>
+                          </div>
+                          {/* points */}
+                          <div className="flex flex-col gap-2">
+                            {work.points.map((point, i: number) => (
+                              <div key={i} className="flex gap-4 items-center">
+                                <div className=" w-2 h-2 bg-textLight rounded-full" />
+                                <p className="flex-1">{point}</p>
+                              </div>
+                            ))}
+                          </div>
+                          {/* skills */}
+                          <div className="flex flex-wrap items-center gap-3">
+                            {work.skills.map((skill, i) => (
+                              <SkillBox key={i} skill={skill} />
+                            ))}
+                          </div>
                         </div>
                       </div>
+                      {workData.length - 1 > i && (
+                        <div className="w-full h-[1px] bg-textLight opacity-40 mt-6 lg:mt-10" />
+                      )}
                     </div>
                   ))}
                 </div>
@@ -319,7 +322,7 @@ const Experience = () => {
               <Image
                 className={
                   pageRoute.prev !== 0
-                    ? "visible cursor-pointer hover:w-7 hover:h-7 w-6 h-6 md:hover:w-9 md:hover:h-9 md:w-8 md:h-8 rounded-full overflow-hidden duration-300"
+                    ? "visible z-[3] cursor-pointer hover:w-9 hover:h-9 w-8 h-8 rounded-full overflow-hidden duration-300"
                     : "invisible"
                 }
                 width={100}
@@ -331,7 +334,7 @@ const Experience = () => {
               <Image
                 className={
                   pageRoute.next !== 0
-                    ? "visible cursor-pointer hover:w-7 hover:h-7 w-6 h-6 md:hover:w-9 md:hover:h-9 md:w-8 md:h-8 rounded-full overflow-hidden duration-300"
+                    ? "visible z-[3] cursor-pointer hover:w-9 hover:h-9 w-8 h-8 rounded-full overflow-hidden duration-300"
                     : "invisible"
                 }
                 width={100}

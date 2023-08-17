@@ -6,6 +6,7 @@ import Github from "@/assets/github-icon.svg";
 import Instagram from "@/assets/instagram-icon.svg";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Sasuke = ({ x, y }: { x: number; y: number }) => {
   const [eyeballsPosition, setEyeballsPosition] = useState({ left: 0, top: 0 });
@@ -39,16 +40,21 @@ const Sasuke = ({ x, y }: { x: number; y: number }) => {
     }px)`,
   };
   return (
-    <div className="relative w-auto md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12">
-      <div className="relative">
+    <div className="relative w-auto md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12 z-[99]">
+      <div className="relative z-[99]">
         <div>
-          <Image
-            className="absolute top-14 left-[-48px]"
-            src={Linkedin}
-            alt={"ln"}
-            width={36}
-            height={36}
-          />
+          <Link
+            href="https://wa.me/918109876429"
+            className="absolute top-14 left-[-48px] cursor-pointer z-[99]"
+          >
+            <Image
+              className=""
+              src={Linkedin}
+              alt={"ln"}
+              width={36}
+              height={36}
+            />
+          </Link>
           <Image
             className="absolute top-[-48px] left-11"
             src={Github}

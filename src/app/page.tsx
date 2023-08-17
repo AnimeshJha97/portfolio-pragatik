@@ -1,11 +1,7 @@
 "use client";
-import SasukeBody from "@/assets/sasuke-body.png";
-import SasukeEyes from "@/assets/eyes.png";
-import Linkedin from "@/assets/linkedin-icon.svg";
-import Github from "@/assets/github-icon.svg";
-import Instagram from "@/assets/instagram-icon.svg";
 import NextIcon from "@/assets/next-arrow.svg";
 import PrevIcon from "@/assets/prev-arrow.svg";
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -13,7 +9,8 @@ import { motion } from "framer-motion";
 import { useRecoilState } from "recoil";
 import { storePage } from "./recoil/atoms/storePage";
 import Title from "@/components/Title";
-
+import Sasuke from "@/components/Sasuke";
+// import sound from ;
 export default function Home() {
   // variable decleration
   const router = useRouter();
@@ -35,24 +32,24 @@ export default function Home() {
     pageTitle_p: "text-textWhite text-base md:text-md font-medium",
     pageTitle_p_span: "text-textLight",
     content:
-      "text-textLight flex flex-col gap-2 md:gap-12 md:flex-row md:items-center justify-between",
-    content_left: "flex flex-col flex-[0.8] lg:flex-1 gap-2 md:gap-4",
+      "text-textLight flex flex-col gap-2 md:gap-12 md:flex-row md:items-center justify-between relative z-[2]",
+    content_left: "flex flex-col flex-[0.8] lg-flex-[0.7] gap-2 md:gap-4",
     content_left_title:
       "text-md md:text-lg lg:text-xxl font-bold text-textWhite",
     content_left_subtitle:
       "text-sm md:text-base lg:text-md mb-4 font-medium text-textWhite",
     content_left_description: "text-xs md:text-sm",
     content_right: "flex flex-col gap-2 md:gap-4 md:flex-[0.95] lg:flex-[0.6]",
-    content_right_about: "ml-6 flex flex-col gap-2 lg:gap-4 text-xs md:text-sm",
+    content_right_about:
+      "ml-6 flex flex-col gap-2 lg:gap-4 text-xs md:text-sm md:max-h-[640px] overflow-y-scroll",
     content_right_about_span: "text-textWhite",
-    content_routeIcons:
-      "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-4 pr-4 md:pl-10 md:pr-10 z-[3]",
+    routeIcons:
+      "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-3 pr-3 md:pl-8 md:pr-8",
     content_sasuke:
-      "relative w-auto md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12",
+      "relative w-auto md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12 z-10",
   };
   // useStates
   const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
-  const [eyeballsPosition, setEyeballsPosition] = useState({ left: 0, top: 0 });
   const [page, setPage] = useRecoilState(storePage);
   const [motionConfig, setMotionConfig] = useState({
     initial: { opacity: 0, x: 200 },
@@ -61,6 +58,7 @@ export default function Home() {
     transition: { duration: 0.5 },
   });
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     let config = {
       initial: { opacity: 0, x: 200 },
@@ -81,34 +79,12 @@ export default function Home() {
     }
     setMotionConfig(config);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    return;
   }, [page]);
 
   useEffect(() => {
     setIsLoading(false);
   }, [motionConfig]);
-
-  useEffect(() => {
-    const calculateEyeballsPosition = () => {
-      const eyesContainer = document.getElementById("eyes-container");
-      if (eyesContainer) {
-        const { left, top, width, height } =
-          eyesContainer.getBoundingClientRect();
-        const centerX = left + width / 2;
-        const centerY = top + height / 2;
-        const deltaX = mouseCoordinates.x - centerX;
-        const deltaY = mouseCoordinates.y - centerY;
-        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-
-        const maxOffset = 3; // Adjust this value for the maximum eyeball offset
-        const offsetX = Math.cos((angle * Math.PI) / 180) * maxOffset;
-        const offsetY = Math.sin((angle * Math.PI) / 180) * maxOffset;
-
-        setEyeballsPosition({ left: offsetX, top: offsetY });
-      }
-    };
-
-    calculateEyeballsPosition();
-  }, [mouseCoordinates]);
 
   const handleMouseMove = (event: {
     clientX: number;
@@ -116,12 +92,6 @@ export default function Home() {
   }): void => {
     const { clientX, clientY } = event;
     setMouseCoordinates({ x: clientX, y: clientY });
-  };
-
-  const eyeballsStyle = {
-    transform: `translate(${eyeballsPosition.left}px, ${
-      eyeballsPosition.top - 3
-    }px)`,
   };
 
   function handlePrevClick(): void {
@@ -152,8 +122,10 @@ export default function Home() {
           transition={motionConfig.transition}
         >
           <div className={styles.container} onMouseMove={handleMouseMove}>
-            {/* page title */}
-            <Title pageNo={"01"} title={"Intro"} />
+            <div className="z-[3] w-full">
+              {/* page title */}
+              <Title pageNo={"01"} title={"Intro"} />
+            </div>
             {/* content */}
             <div className={styles.content}>
               {/* left */}
@@ -245,11 +217,11 @@ export default function Home() {
               </div>
             </div>
             {/* prev - next icons */}
-            <div className={styles.content_routeIcons}>
+            <div className={styles.routeIcons}>
               <Image
                 className={
                   pageRoute.prev !== 0
-                    ? "visible cursor-pointer hover:w-7 hover:h-7 w-6 h-6 md:hover:w-9 md:hover:h-9 md:w-8 md:h-8 rounded-full overflow-hidden duration-300"
+                    ? " z-[3] visible cursor-pointer hover:w-9 hover:h-9 w-8 h-8 rounded-full overflow-hidden duration-300"
                     : "invisible"
                 }
                 width={100}
@@ -261,7 +233,7 @@ export default function Home() {
               <Image
                 className={
                   pageRoute.next !== 0
-                    ? "visible cursor-pointer hover:w-7 hover:h-7 w-6 h-6 md:hover:w-9 md:hover:h-9 md:w-8 md:h-8 rounded-full overflow-hidden duration-300"
+                    ? "visible z-[3] cursor-pointer hover:w-9 hover:h-9 w-8 h-8 rounded-full overflow-hidden duration-300"
                     : "invisible"
                 }
                 width={100}
@@ -272,61 +244,7 @@ export default function Home() {
               />
             </div>
             {/* sasuke img & social icons */}
-            <div className={styles.content_sasuke}>
-              <div className="relative">
-                <div>
-                  <Image
-                    className="absolute top-14 left-[-48px]"
-                    src={Linkedin}
-                    alt={"ln"}
-                    width={36}
-                    height={36}
-                  />
-                  <Image
-                    className="absolute top-[-48px] left-11"
-                    src={Github}
-                    alt={"ln"}
-                    width={36}
-                    height={36}
-                  />
-                  <Image
-                    className="absolute top-14 right-[-48px]"
-                    src={Instagram}
-                    alt={"ln"}
-                    width={36}
-                    height={36}
-                  />
-                </div>
-                <div>
-                  <Image
-                    className="absolute top-[57px] left-[30px] z-10"
-                    id="eye-left"
-                    style={eyeballsStyle}
-                    width={28}
-                    height={28}
-                    src={SasukeEyes}
-                    alt="Sasuke"
-                  />
-                  <Image
-                    className="absolute top-[60px] left-[67px] z-10"
-                    id="eye-right"
-                    style={eyeballsStyle}
-                    width={28}
-                    height={28}
-                    src={SasukeEyes}
-                    alt="Sasuke"
-                  />
-                </div>
-                <Image
-                  className="relative z-20"
-                  id="eyes-container"
-                  width={120}
-                  height={120}
-                  src={SasukeBody}
-                  alt="Sasuke"
-                />
-              </div>
-            </div>
+            <Sasuke x={mouseCoordinates.x} y={mouseCoordinates.y} />
           </div>
         </motion.div>
       )}

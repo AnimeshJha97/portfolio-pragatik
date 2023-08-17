@@ -24,7 +24,6 @@ function Particle() {
         width: "100%",
         //border: "3px solid green",
         display: "block",
-        zIndex: 3,
       }}
     >
       {isHovering && (
