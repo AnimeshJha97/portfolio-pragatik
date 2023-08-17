@@ -44,7 +44,7 @@ const Sasuke = ({ x, y }: { x: number; y: number }) => {
       <div className="relative z-[99]">
         <div>
           <Link
-            href="https://wa.me/918109876429"
+            href="https://www.linkedin.com/in/jha-animesh/"
             className="absolute top-14 left-[-48px] cursor-pointer z-[99]"
           >
             <Image
@@ -55,20 +55,30 @@ const Sasuke = ({ x, y }: { x: number; y: number }) => {
               height={36}
             />
           </Link>
-          <Image
-            className="absolute top-[-48px] left-11"
-            src={Github}
-            alt={"ln"}
-            width={36}
-            height={36}
-          />
-          <Image
-            className="absolute top-14 right-[-48px]"
-            src={Instagram}
-            alt={"ln"}
-            width={36}
-            height={36}
-          />
+          <Link
+            href="https://github.com/AnimeshJha97"
+            className="absolute top-14 left-[-48px] cursor-pointer z-[99]"
+          >
+            <Image
+              className="absolute top-[-48px] left-11"
+              src={Github}
+              alt={"ln"}
+              width={36}
+              height={36}
+            />
+          </Link>
+          <Link
+            href="https://instagram.com/__the_undead_cowboy__?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
+            className="absolute top-14 left-[-48px] cursor-pointer z-[99]"
+          >
+            <Image
+              className="absolute top-14 right-[-48px]"
+              src={Instagram}
+              alt={"ln"}
+              width={36}
+              height={36}
+            />
+          </Link>
         </div>
         <div>
           <Image
