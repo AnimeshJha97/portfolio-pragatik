@@ -57,10 +57,10 @@ const Sasuke = ({ x, y }: { x: number; y: number }) => {
           </Link>
           <Link
             href="https://github.com/AnimeshJha97"
-            className="absolute top-14 left-[-48px] cursor-pointer z-[99]"
+            className="absolute top-[-48px] left-11 cursor-pointer z-[99]"
           >
             <Image
-              className="absolute top-[-48px] left-11"
+              className=""
               src={Github}
               alt={"ln"}
               width={36}
@@ -69,10 +69,10 @@ const Sasuke = ({ x, y }: { x: number; y: number }) => {
           </Link>
           <Link
             href="https://instagram.com/__the_undead_cowboy__?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
-            className="absolute top-14 left-[-48px] cursor-pointer z-[99]"
+            className="absolute top-14 right-[-48px] cursor-pointer z-[99]"
           >
             <Image
-              className="absolute top-14 right-[-48px]"
+              className=""
               src={Instagram}
               alt={"ln"}
               width={36}
