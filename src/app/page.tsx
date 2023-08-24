@@ -143,9 +143,7 @@ export default function Home() {
             <div className={styles.content}>
               {/* left */}
               <div className={styles.content_left}>
-                <p className="text-text-xs md:text-sm text-primary">
-                  {"<title>"}
-                </p>
+                <p className="text-xs md:text-sm text-primary">{"<title>"}</p>
                 <div className="ml-6">
                   <p className={styles.content_left_title}>Animesh Jha</p>
                   {/* <p className={styles.content_left_subtitle}>
@@ -166,9 +164,7 @@ export default function Home() {
               </div>
               {/* right */}
               <div className={styles.content_right}>
-                <p className="text-text-xs md:text-sm text-primary">
-                  {"<about>"}
-                </p>
+                <p className="text-xs md:text-sm text-primary">{"<about>"}</p>
                 <div className={styles.content_right_about}>
                   <p>
                     Well, {"let's"} dive into the beginning, shall we? Despite
@@ -236,9 +232,7 @@ export default function Home() {
                     </span>
                   </p>
                 </div>
-                <p className="text-text-xs md:text-sm text-primary">
-                  {"</about>"}
-                </p>
+                <p className="text-xs md:text-sm text-primary">{"</about>"}</p>
               </div>
             </div>
             {/* prev - next icons */}
