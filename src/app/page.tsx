@@ -1,6 +1,7 @@
 "use client";
 import NextIcon from "@/assets/next-arrow.svg";
 import PrevIcon from "@/assets/prev-arrow.svg";
+import Typed from "react-typed";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -10,6 +11,8 @@ import { useRecoilState } from "recoil";
 import { storePage } from "./recoil/atoms/storePage";
 import Title from "@/components/Title";
 import Sasuke from "@/components/Sasuke";
+import ContactMe from "@/components/ContactMe";
+import EmailModal from "@/components/EmailModal";
 // import sound from ;
 export default function Home() {
   // variable decleration
@@ -19,6 +22,8 @@ export default function Home() {
     current: 1,
     next: 2,
   };
+
+  const roles = ["Frontend Developer", "Backend Developer", "UI/UX Designer"];
   // style decleration
   const styles = {
     loading_container: "flex flex-col min-h-screen justify-center items-center",
@@ -27,7 +32,7 @@ export default function Home() {
     loading_container_inner_span:
       "!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]",
     container:
-      "relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 min-h-screen justify-center items-center p-sm pt-16 md:p-md lg:p-lg select-none",
+      "duration-300 relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 min-h-screen overflow-y-scroll justify-center items-center p-sm pt-16 md:p-md lg:p-lg select-none",
     pageTitle: "absolute top-0 left-0 p-sm md:p-md lg:p-lg",
     pageTitle_p: "text-textWhite text-base md:text-md font-medium",
     pageTitle_p_span: "text-textLight",
@@ -58,6 +63,7 @@ export default function Home() {
     transition: { duration: 0.5 },
   });
   const [isLoading, setIsLoading] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     let config = {
@@ -104,6 +110,13 @@ export default function Home() {
     router.push("/Experience");
   }
 
+  const handleModalOpen = () => {
+    setOpenModal((current) => {
+      console.log("model set to ", !current);
+      return !current;
+    });
+  };
+
   return (
     <main>
       {isLoading ? (
@@ -130,22 +143,32 @@ export default function Home() {
             <div className={styles.content}>
               {/* left */}
               <div className={styles.content_left}>
-                <p className="text-primary">{"<title>"}</p>
+                <p className="text-text-xs md:text-sm text-primary">
+                  {"<title>"}
+                </p>
                 <div className="ml-6">
                   <p className={styles.content_left_title}>Animesh Jha</p>
-                  <p className={styles.content_left_subtitle}>
+                  {/* <p className={styles.content_left_subtitle}>
                     Full Stack Web Developer
-                  </p>
+                  </p> */}
+                  <Typed
+                    className={styles.content_left_subtitle}
+                    strings={roles}
+                    typeSpeed={160}
+                    loop
+                  />
                   <p className={styles.content_left_description}>
                     Weaving digital wonders with code, creativity, and a touch
                     of magic.
                   </p>
                 </div>
-                <p className="text-primary">{"</title>"}</p>
+                <p className="text-xs md:text-sm text-primary">{"</title>"}</p>
               </div>
               {/* right */}
               <div className={styles.content_right}>
-                <p className="text-primary">{"<about>"}</p>
+                <p className="text-text-xs md:text-sm text-primary">
+                  {"<about>"}
+                </p>
                 <div className={styles.content_right_about}>
                   <p>
                     Well, {"let's"} dive into the beginning, shall we? Despite
@@ -213,7 +236,9 @@ export default function Home() {
                     </span>
                   </p>
                 </div>
-                <p className="text-primary">{"</about>"}</p>
+                <p className="text-text-xs md:text-sm text-primary">
+                  {"</about>"}
+                </p>
               </div>
             </div>
             {/* prev - next icons */}
@@ -245,6 +270,8 @@ export default function Home() {
             </div>
             {/* sasuke img & social icons */}
             <Sasuke x={mouseCoordinates.x} y={mouseCoordinates.y} />
+            <ContactMe handleModalOpen={handleModalOpen} />
+            {openModal ? <EmailModal setOpenModal={setOpenModal} /> : null}
           </div>
         </motion.div>
       )}

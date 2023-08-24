@@ -15,6 +15,8 @@ import { useRecoilState } from "recoil";
 import Sasuke from "@/components/Sasuke";
 import Title from "@/components/Title";
 import SkillBox from "@/components/SkillBox";
+import EmailModal from "@/components/EmailModal";
+import ContactMe from "@/components/ContactMe";
 
 interface SectionRefs {
   [key: string]: React.RefObject<HTMLDivElement>;
@@ -135,6 +137,7 @@ const Experience = () => {
   });
   const [isLoading, setIsLoading] = useState(true);
   const [selectedWork, setSelectedWork] = useState(workData[0].name);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     let config = {
@@ -197,6 +200,13 @@ const Experience = () => {
     setPage(pageRoute.current);
     router.push("/Projects");
   }
+
+  const handleModalOpen = () => {
+    setOpenModal((current) => {
+      console.log("model set to ", !current);
+      return !current;
+    });
+  };
 
   return (
     <main>
@@ -346,6 +356,8 @@ const Experience = () => {
             </div>
             {/* sasuke img & social icons */}
             <Sasuke x={mouseCoordinates.x} y={mouseCoordinates.y} />
+            <ContactMe handleModalOpen={handleModalOpen} />
+            {openModal ? <EmailModal setOpenModal={setOpenModal} /> : null}
           </div>
         </motion.div>
       )}

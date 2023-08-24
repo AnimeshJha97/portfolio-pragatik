@@ -68,7 +68,7 @@ const Sasuke = ({ x, y }: { x: number; y: number }) => {
             />
           </Link>
           <Link
-            href="https://instagram.com/__the_undead_cowboy__?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
+            href="https://instagram.com/__the_undead_cowboy__"
             className="absolute top-14 right-[-48px] cursor-pointer z-[99]"
           >
             <Image

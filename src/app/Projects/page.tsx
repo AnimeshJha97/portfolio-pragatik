@@ -10,6 +10,8 @@ import { useRecoilState } from "recoil";
 import Sasuke from "@/components/Sasuke";
 import Title from "@/components/Title";
 import SkillBox from "@/components/SkillBox";
+import ContactMe from "@/components/ContactMe";
+import EmailModal from "@/components/EmailModal";
 
 interface SectionRefs {
   [key: string]: React.RefObject<HTMLDivElement>;
@@ -180,6 +182,7 @@ const Projects = () => {
   });
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(projectData[0].id);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     let config = {
@@ -242,6 +245,13 @@ const Projects = () => {
     setPage(pageRoute.current);
     router.push("/Projects");
   }
+
+  const handleModalOpen = () => {
+    setOpenModal((current) => {
+      console.log("model set to ", !current);
+      return !current;
+    });
+  };
 
   return (
     <main>
@@ -392,6 +402,8 @@ const Projects = () => {
             </div>
             {/* sasuke img & social icons */}
             <Sasuke x={mouseCoordinates.x} y={mouseCoordinates.y} />
+            <ContactMe handleModalOpen={handleModalOpen} />
+            {openModal ? <EmailModal setOpenModal={setOpenModal} /> : null}
           </div>
         </motion.div>
       )}
