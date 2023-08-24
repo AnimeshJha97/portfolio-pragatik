@@ -25,7 +25,12 @@ const StartAnimation = () => {
         videoPlayed ? "hidden opacity-0" : "visible opacity-100"
       }`}
     >
-      <video autoPlay muted className="loading-video max-w-full max-h-full">
+      <video
+        autoPlay
+        muted
+        playsInline
+        className="loading-video object-cover w-full h-full"
+      >
         <source
           src="https://res.cloudinary.com/animesh-jha/video/upload/v1692903774/portfolio/Aimages_-_seirem_dnhojq.mp4"
           type="video/mp4"
