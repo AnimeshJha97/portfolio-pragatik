@@ -143,6 +143,7 @@ const Projects = () => {
     current: 3,
     next: 0,
   };
+  let sectionRefs: SectionRefs = {};
 
   // style decleration
   const styles = {
@@ -204,6 +205,42 @@ const Projects = () => {
     setIsLoading(false);
   }, [motionConfig]);
 
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-80px",
+      threshold: 0.8, // Adjust this threshold as needed
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target) {
+          // Find the work name associated with the section
+          const projectName = Object.keys(sectionRefs).find(
+            (name) => sectionRefs[name].current === entry.target
+          );
+
+          if (projectName) {
+            setSelectedProject(projectName);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Attach the observer to each section ref
+    Object.keys(sectionRefs).forEach((name) => {
+      const currentSectionRef = sectionRefs[name].current;
+      if (currentSectionRef) {
+        observer.observe(currentSectionRef as Element); // Type assertion here
+      }
+    });
+
+    // Clean up the observer when the component unmounts
+    return () => {
+      observer.disconnect();
+    };
+  }, [sectionRefs]);
+
   const handleMouseMove = (event: {
     clientX: number;
     clientY: number;
@@ -211,8 +248,6 @@ const Projects = () => {
     const { clientX, clientY } = event;
     setMouseCoordinates({ x: clientX, y: clientY });
   };
-
-  const sectionRefs: SectionRefs = {};
 
   projectData.forEach((project) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks

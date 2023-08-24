@@ -24,6 +24,7 @@ interface SectionRefs {
 
 const Experience = () => {
   // variable decleration
+  let sectionRefs: SectionRefs = {};
   const router = useRouter();
   const pageRoute = {
     prev: 1,
@@ -159,6 +160,42 @@ const Experience = () => {
     setIsLoading(false);
   }, [motionConfig]);
 
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.9, // Adjust this threshold as needed
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target) {
+          // Find the work name associated with the section
+          const workName = Object.keys(sectionRefs).find(
+            (name) => sectionRefs[name].current === entry.target
+          );
+
+          if (workName) {
+            setSelectedWork(workName);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Attach the observer to each section ref
+    Object.keys(sectionRefs).forEach((name) => {
+      const currentSectionRef = sectionRefs[name].current;
+      if (currentSectionRef) {
+        observer.observe(currentSectionRef as Element); // Type assertion here
+      }
+    });
+
+    // Clean up the observer when the component unmounts
+    return () => {
+      observer.disconnect();
+    };
+  }, [sectionRefs]);
+
   const handleMouseMove = (event: {
     clientX: number;
     clientY: number;
@@ -166,8 +203,6 @@ const Experience = () => {
     const { clientX, clientY } = event;
     setMouseCoordinates({ x: clientX, y: clientY });
   };
-
-  const sectionRefs: SectionRefs = {};
 
   workData.forEach((work) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks

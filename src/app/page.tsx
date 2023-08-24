@@ -43,7 +43,7 @@ export default function Home() {
       "text-md md:text-lg lg:text-xxl font-bold text-textWhite",
     content_left_subtitle:
       "text-sm md:text-base lg:text-md mb-4 font-medium text-textWhite",
-    content_left_description: "text-xs md:text-sm",
+    content_left_description: "text-xs md:text-sm mt-3",
     content_right: "flex flex-col gap-2 md:gap-4 md:flex-[0.95] lg:flex-[0.6]",
     content_right_about:
       "ml-6 flex flex-col gap-2 lg:gap-4 text-xs md:text-sm md:max-h-[640px] overflow-y-scroll",
