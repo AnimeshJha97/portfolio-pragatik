@@ -24,7 +24,7 @@ module.exports = {
         xxl: "56px"
       },
       padding: {
-        sm: "16px 32px",
+        sm: "32px",
         md: "20px 108px",
         lg: "40px 128px",
       }

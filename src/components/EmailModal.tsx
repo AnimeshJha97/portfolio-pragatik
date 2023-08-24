@@ -74,7 +74,7 @@ const EmailModal = ({
           Contact Me
         </p>
         <MdCancel
-          className="duration-300 cursor-pointer absolute top-2 right-2 text-md hover:text-primary text-white"
+          className="duration-300 cursor-pointer fixed top-2 right-2 text-md hover:text-primary text-white"
           onClick={() => handleCloseModal()}
         />
         <div className="relative z-[1001] w-full p-4 lg:p-8 flex flex-col-reverse lg:flex-row justify-around items-center gap-6 text-white">

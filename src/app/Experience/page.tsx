@@ -118,9 +118,9 @@ const Experience = () => {
       "text-sm md:text-base lg:text-md mb-4 font-medium text-textWhite",
     content_left_description: "text-xs md:text-sm",
     content_right:
-      "h-[80vh] flex flex-col gap-2 md:gap-6 md:flex-[0.95] md:pr-12 md:mt-16 lg:mt-24 md:pb-16",
+      "md:h-[80vh] flex flex-col gap-4 md:flex-[0.95] md:pr-12 md:mt-16 lg:mt-24 md:pb-16",
     content_right_about:
-      "ml-6 flex flex-col gap-6 lg:gap-10 text-xs md:text-sm overflow-x-hidden md:pb-[160px]",
+      "ml-4 md:ml-6 flex flex-col gap-6 lg:gap-10 text-xs md:text-sm h-full md:overflow-x-hidden md:pb-[160px]",
     content_right_about_span: "text-textWhite",
     routeIcons:
       "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-3 pr-3 md:pl-8 md:pr-8",
@@ -260,19 +260,22 @@ const Experience = () => {
           exit={motionConfig.exit}
           transition={motionConfig.transition}
         >
-          <div className={styles.container} onMouseMove={handleMouseMove}>
+          <div
+            className="duration-300 relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 min-h-screen overflow-y-scroll justify-center items-center p-sm pt-16 md:p-md lg:p-lg select-none"
+            onMouseMove={handleMouseMove}
+          >
             <div className="z-[3] w-full">
               {/* page title */}
               <Title pageNo={"02"} title={"Experience"} />
             </div>
 
             {/* content */}
-            <div className={styles.content}>
+            <div className="text-textLight flex flex-col mt-12 md:mt-0 gap-16 md:flex-row md:items-center justify-between relative z-[2]">
               {/* left */}
               <div className="h-[90vh] flex items-center flex-[0.8] lg:flex-[0.9]">
-                <div className={styles.content_left}>
+                <div className="flex flex-col flex-[0.8] lg-flex-[0.7] gap-4">
                   <p className="text-xs md:text-sm text-primary">{"<title>"}</p>
-                  <div className="ml-6">
+                  <div className="ml-4 md:ml-6">
                     <p className={styles.content_left_subtitle}>
                       Work Experience
                     </p>
@@ -287,8 +290,8 @@ const Experience = () => {
                           <div
                             className={
                               selectedWork === work.name
-                                ? "h-[1px] duration-300 w-6 md:w-12 bg-textWhite"
-                                : "h-[1px] w-3 md:w-6 duration-300 group-hover:w-12 group-hover:bg-textWhite bg-textLight"
+                                ? "h-[1px] duration-300 w-8 md:w-12 bg-textWhite"
+                                : "h-[1px] w-6 md:w-6 duration-300 group-hover:w-12 group-hover:bg-textWhite bg-textLight"
                             }
                           />
                           <p
@@ -346,7 +349,7 @@ const Experience = () => {
                           {/* skills */}
                           <div className="flex flex-wrap items-center gap-3">
                             {work.skills.map((skill, i) => (
-                              <SkillBox key={i} skill={skill} />
+                              <SkillBox key={i} keyParam={i} skill={skill} />
                             ))}
                           </div>
                         </div>

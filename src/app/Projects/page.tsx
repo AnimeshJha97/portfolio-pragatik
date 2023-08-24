@@ -155,17 +155,17 @@ const Projects = () => {
     container:
       "relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 min-h-screen justify-center items-center p-sm pt-16 md:p-md lg:p-lg select-none",
     content:
-      "text-textLight flex flex-col gap-2 md:gap-12 md:flex-row justify-between z-10 relative z-[2]",
-    content_left: "flex flex-col gap-2 md:gap-4",
+      "text-textLight flex flex-col mt-12 md:mt-0 gap-16 md:flex-row md:items-center justify-between relative z-[2]",
+    content_left: "flex flex-col gap-2 gap-4",
     content_left_title:
       "text-md md:text-lg lg:text-xxl font-bold text-textWhite",
     content_left_subtitle:
       "text-sm md:text-base lg:text-md mb-4 font-medium text-textWhite",
     content_left_description: "text-xs md:text-sm",
     content_right:
-      "h-[80vh] flex flex-col gap-2 md:gap-6 md:flex-[0.95] md:pr-12 md:mt-16 lg:mt-24 md:pb-16",
+      "md:h-[80vh] flex flex-col gap-4 md:flex-[0.95] md:pr-12 md:mt-16 lg:mt-24 md:pb-16",
     content_right_about:
-      "ml-6 flex flex-col gap-6 lg:gap-10 text-xs md:text-sm overflow-x-hidden md:pb-[360px]",
+      "ml-6 flex flex-col gap-6 lg:gap-10 text-xs md:text-sm h-full md:overflow-x-hidden md:pb-[360px]",
     content_right_about_span: "text-textWhite",
     routeIcons:
       "fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-3 pr-3 md:pl-8 md:pr-8",
@@ -394,7 +394,7 @@ const Projects = () => {
                       </div>
                       <div className="flex flex-wrap items-center gap-3">
                         {project.skills.map((skill, i) => (
-                          <SkillBox key={i} skill={skill} />
+                          <SkillBox key={i} keyParam={i} skill={skill} />
                         ))}
                       </div>
                       {projectData.length - 1 > i && (

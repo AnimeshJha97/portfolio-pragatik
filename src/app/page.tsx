@@ -120,9 +120,12 @@ export default function Home() {
   return (
     <main>
       {isLoading ? (
-        <div className={styles.loading_container}>
-          <div className={styles.loading_container_inner} role="status">
-            <span className={styles.loading_container_inner_span}>
+        <div className="flex flex-col min-h-screen justify-center items-center">
+          <div
+            className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            role="status"
+          >
+            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
               Loading...
             </span>
           </div>
@@ -134,28 +137,33 @@ export default function Home() {
           exit={motionConfig.exit}
           transition={motionConfig.transition}
         >
-          <div className={styles.container} onMouseMove={handleMouseMove}>
+          <div
+            className="duration-300 relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 min-h-screen overflow-y-scroll justify-center items-center p-sm pt-16 md:p-md lg:p-lg select-none"
+            onMouseMove={handleMouseMove}
+          >
             <div className="z-[3] w-full">
               {/* page title */}
               <Title pageNo={"01"} title={"Intro"} />
             </div>
             {/* content */}
-            <div className={styles.content}>
+            <div className="text-textLight flex flex-col mt-12 md:mt-0 gap-16 md:flex-row md:items-center justify-between relative z-[2]">
               {/* left */}
-              <div className={styles.content_left}>
+              <div className="flex flex-col flex-[0.8] lg-flex-[0.7] gap-4">
                 <p className="text-xs md:text-sm text-primary">{"<title>"}</p>
-                <div className="ml-6">
-                  <p className={styles.content_left_title}>Animesh Jha</p>
+                <div className="ml-4 md:ml-6">
+                  <p className="text-md md:text-lg lg:text-xxl mb-1 md:mb-0 font-bold text-textWhite">
+                    Animesh Jha
+                  </p>
                   {/* <p className={styles.content_left_subtitle}>
                     Full Stack Web Developer
                   </p> */}
                   <Typed
-                    className={styles.content_left_subtitle}
+                    className="text-sm md:text-base lg:text-md font-medium text-textWhite"
                     strings={roles}
                     typeSpeed={160}
                     loop
                   />
-                  <p className={styles.content_left_description}>
+                  <p className="text-xs md:text-sm mt-2 md:mt-3">
                     Weaving digital wonders with code, creativity, and a touch
                     of magic.
                   </p>
@@ -163,9 +171,9 @@ export default function Home() {
                 <p className="text-xs md:text-sm text-primary">{"</title>"}</p>
               </div>
               {/* right */}
-              <div className={styles.content_right}>
+              <div className="flex flex-col gap-4 md:flex-[0.95] lg:flex-[0.6]">
                 <p className="text-xs md:text-sm text-primary">{"<about>"}</p>
-                <div className={styles.content_right_about}>
+                <div className="ml-4 md:ml-6 flex flex-col gap-2 lg:gap-4 text-xs md:text-sm md:max-h-[640px] overflow-y-scroll">
                   <p>
                     Well, {"let's"} dive into the beginning, shall we? Despite
                     the numerous challenges and failures that life has thrown my
@@ -236,7 +244,7 @@ export default function Home() {
               </div>
             </div>
             {/* prev - next icons */}
-            <div className={styles.routeIcons}>
+            <div className="fixed top-0 left-0 h-screen w-full flex justify-between items-center pl-3 pr-3 md:pl-8 md:pr-8">
               <Image
                 className={
                   pageRoute.prev !== 0
