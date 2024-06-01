@@ -22,7 +22,7 @@ export async function POST(req: Request, res: Response) {
     `;
 
     var sendSmtpEmail = new Brevo.SendSmtpEmail();
-    sendSmtpEmail.subject = `Hiring Notification || ${subject}`;
+    sendSmtpEmail.subject = `Portfolio Connect || ${subject}`;
     sendSmtpEmail.htmlContent = contentMsg.replace(/rn/g, "<br>");
     sendSmtpEmail.sender = {
       email: FROM_EMAIL,
