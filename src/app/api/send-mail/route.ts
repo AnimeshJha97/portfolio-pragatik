@@ -17,12 +17,12 @@ export async function POST(req: Request, res: Response) {
     const contentMsg = `
     Name: ${name}rn
     Email: ${email}rn
-    Subject: Hiring Notification || ${subject}rn
+    Subject: ${subject}rn
     Message: rn${content}
     `;
 
     var sendSmtpEmail = new Brevo.SendSmtpEmail();
-    sendSmtpEmail.subject = `${name} || ${subject}`;
+    sendSmtpEmail.subject = `Portfolio Connect || ${subject}`;
     sendSmtpEmail.htmlContent = contentMsg.replace(/rn/g, "<br>");
     sendSmtpEmail.sender = {
       email: FROM_EMAIL,
