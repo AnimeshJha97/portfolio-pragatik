@@ -26,7 +26,7 @@ const Input = ({
   ) => {
     setter((current) => {
       current[id] = e.target.value;
-      console.log("current", current);
+      // console.log("current", current);
       return current;
     });
   };

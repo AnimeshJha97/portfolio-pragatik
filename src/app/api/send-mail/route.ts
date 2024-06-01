@@ -1,36 +1,42 @@
-import sgMail from "@sendgrid/mail";
-// import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
-sgMail.setApiKey(
-  "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"
-);
-const FROM_EMAIL = "connectwithme.animesh.jha@gmail.com";
-const TO_EMAIL = "connectwithme.animesh.jha@outlook.com";
+
+var Brevo = require("@getbrevo/brevo");
+
+const FROM_EMAIL = `${process.env.BREVO_SENDER}`;
+const TO_EMAIL = `${process.env.BREVO_RECIEVER}`;
+const NAME = `${process.env.BREVO_NAME}`;
 
 export async function POST(req: Request, res: Response) {
   try {
-    const data = await req.json();
-    const { name, email, subject, content } = data;
+    var apiInstance = new Brevo.TransactionalEmailsApi();
+    let portfolioKey = apiInstance.authentications["apiKey"];
+    portfolioKey.apiKey = `${process.env.BREVO_KEY}`;
+
+    const requestObj = await req.json();
+    const { name, email, subject, content } = requestObj;
     const contentMsg = `
     Name: ${name}rn
     Email: ${email}rn
-    Subject: ${subject}rn
+    Subject: Hiring Notification || ${subject}rn
     Message: rn${content}
     `;
-    const msg = {
-      to: TO_EMAIL,
-      from: FROM_EMAIL,
-      subject: `${name} || ${subject}`,
-      text: contentMsg,
-      html: contentMsg.replace(/rn/g, "<br>"),
+
+    var sendSmtpEmail = new Brevo.SendSmtpEmail();
+    sendSmtpEmail.subject = `${name} || ${subject}`;
+    sendSmtpEmail.htmlContent = contentMsg.replace(/rn/g, "<br>");
+    sendSmtpEmail.sender = {
+      email: FROM_EMAIL,
+      name: NAME,
     };
-    await sgMail.send(msg);
+    sendSmtpEmail.to = [{ email: TO_EMAIL, name: NAME }];
+
+    const apiResponse = await apiInstance.sendTransacEmail(sendSmtpEmail);
     return NextResponse.json({
       status: true,
       message: "Email sent successfully",
     });
   } catch (error) {
-    console.log("error", error);
+    console.error(error);
     return NextResponse.json({
       status: false,
       message: "Error sending Email",

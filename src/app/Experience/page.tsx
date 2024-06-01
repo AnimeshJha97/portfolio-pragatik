@@ -33,6 +33,30 @@ const Experience = () => {
   };
   const workData = [
     {
+      name: "Veritas Prime Labs",
+      year: {
+        from: "2023",
+        to: "present",
+      },
+      subTitle: "Recognized Expertise in HR Cloud Solutions.",
+      points: [
+        "Leading projects from LATAM region",
+        "Created tables and various types of charts for data visualization using the Highcharts library.",
+        "Implemented the Balkan library to represent organization hierarchy in the product.",
+        "Utilized Jira and GitHub extensively for bug and issue management, as well as efficient code patching and release management.",
+      ],
+      skills: [
+        "Tech Lead",
+        "React.js",
+        "Node.js",
+        "Postgres SQL",
+        "Jira",
+        "Github",
+        "Jenkins",
+        "SAP",
+      ],
+    },
+    {
       name: "Next Quarter (formerly Forecast Era)",
       year: {
         from: "2022",
@@ -395,7 +419,9 @@ const Experience = () => {
             {/* sasuke img & social icons */}
             <Sasuke x={mouseCoordinates.x} y={mouseCoordinates.y} />
             <ContactMe handleModalOpen={handleModalOpen} />
-            {openModal ? <EmailModal setOpenModal={setOpenModal} /> : null}
+            {openModal ? (
+              <EmailModal setOpenModal={setOpenModal} isPage={false} />
+            ) : null}
           </div>
         </motion.div>
       )}
