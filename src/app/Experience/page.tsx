@@ -419,9 +419,7 @@ const Experience = () => {
             {/* sasuke img & social icons */}
             <Sasuke x={mouseCoordinates.x} y={mouseCoordinates.y} />
             <ContactMe handleModalOpen={handleModalOpen} />
-            {openModal ? (
-              <EmailModal setOpenModal={setOpenModal} isPage={false} />
-            ) : null}
+            {openModal ? <EmailModal setOpenModal={setOpenModal} /> : null}
           </div>
         </motion.div>
       )}
