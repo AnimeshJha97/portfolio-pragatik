@@ -171,65 +171,21 @@ export default function Home() {
                 <p className="text-xs md:text-sm text-primary">{"</title>"}</p>
               </div>
               {/* right */}
-              <div className="flex flex-col gap-4 md:flex-[0.95] lg:flex-[0.6]">
+              <div className="flex flex-col gap-4 md:flex-[0.95] lg:flex-[0.65]">
                 <p className="text-xs md:text-sm text-primary">{"<about>"}</p>
                 <div className="ml-4 md:ml-6 flex flex-col gap-2 lg:gap-4 text-xs md:text-sm md:max-h-[640px] overflow-y-scroll">
                   <p>
-                    Well, {"let's"} dive into the beginning, shall we? Despite
-                    the numerous challenges and failures that life has thrown my
-                    way, I stand firm and determined. It all started back in
-                    2013 when I made the decision to pursue Computer Science
-                    alongside Physics, Chemistry, and Mathematics. But perhaps
-                    we can delve deeper into that story another time, if{" "}
-                    {"you're"} interested.
+                    {`Welcome to my digital space, where innovation meets efficiency, and creativity merges with functionality. As a seasoned Full Stack MERN Developer with three years of professional experience, I bring a wealth of expertise to the table, ensuring your projects not only meet but exceed expectations.`}
                   </p>
                   <p>
-                    Fast forward to the present, I have gained experience
-                    working for an{" "}
-                    <span className={styles.content_right_about_span}>MNC</span>
-                    , a{" "}
-                    <span className={styles.content_right_about_span}>
-                      Fintech
-                    </span>{" "}
-                    company, and a{" "}
-                    <span className={styles.content_right_about_span}>
-                      Product
-                    </span>{" "}
-                    company. Unfortunately, I{" "}
-                    <span className={styles.content_right_about_span}>
-                      recently faced a layoff
-                    </span>{" "}
-                    from my most recent job due to confidential reasons. In that
-                    role, I was responsible for creating features for the{" "}
-                    {"company's"} product, which was a{" "}
-                    <span className={styles.content_right_about_span}>
-                      dashboard built on the Salesforce platform
-                    </span>
-                    . To{" "}
-                    <span className={styles.content_right_about_span}>
-                      enhance
-                    </span>{" "}
-                    its{" "}
-                    <span className={styles.content_right_about_span}>
-                      performance
-                    </span>{" "}
-                    and{" "}
-                    <span className={styles.content_right_about_span}>
-                      reliability
-                    </span>
-                    , we{" "}
-                    <span className={styles.content_right_about_span}>
-                      integrated React components
-                    </span>
-                    .
+                    {/* {`<span className={styles.content_right_about_span}>MNC</span>, a{" "}`} */}
+                    {`My journey in the tech realm has been diverse and dynamic, encompassing a spectrum of cutting-edge technologies and methodologies. From harnessing the power of MERN stack to seamlessly integrating CMS solutions, I thrive on crafting bespoke applications tailored to your unique needs.`}
                   </p>
                   <p>
-                    Apart from my passion for coding and technology, I have a
-                    penchant for indulging in web series and movies,
-                    particularly those in the Sci-Fi, Action, Thriller, and
-                    Adventure genres. I also enjoy playing e-games, badminton,
-                    and maintaining a regular workout routine. Just the usual
-                    schedule that many of us follow, right?{" "}
+                    {`At the core of my philosophy lies a passion for problem-solving and a dedication to exceeding expectations. From architecting robust architectures to fine-tuning database queries, every project is a testament to my commitment to excellence.`}
+                  </p>
+                  <p>
+                    {`As a leader, I thrive on orchestrating teams towards success, fostering a culture of collaboration and innovation, empowering teams to unleash their full potential and deliver solutions that inspire. Together, let's embark on a journey of digital transformation, where challenges are opportunities and success knows no bounds.  `}
                     <span
                       className={
                         styles.content_right_about_span +
