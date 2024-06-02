@@ -40,10 +40,13 @@ const Experience = () => {
       },
       subTitle: "Recognized Expertise in HR Cloud Solutions.",
       points: [
-        "Leading projects from LATAM region",
-        "Created tables and various types of charts for data visualization using the Highcharts library.",
-        "Implemented the Balkan library to represent organization hierarchy in the product.",
-        "Utilized Jira and GitHub extensively for bug and issue management, as well as efficient code patching and release management.",
+        "Led and oversaw the development of several internal and client projects.",
+        "Engaged in discussions with clients and onshore stakeholders to address both business and technical aspects of projects.",
+        "Managed multiple project teams by taking on leadership responsibilities.",
+        "Utilized technologies such as SAP UI5, React.js, Node.js, etc., to implement projects.",
+        "Created highly scalable applications and optimized existing code for better performance.",
+        "Improved SQL query performance by aggregating queries and indexing database tables.",
+        "Made extensive use of Jira and GitHub for effective management of bugs and tasks.",
       ],
       skills: [
         "Tech Lead",

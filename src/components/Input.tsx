@@ -6,6 +6,7 @@ const Input = ({
   title,
   value,
   setter,
+  errorMessage,
 }: {
   id: "name" | "email" | "subject" | "content";
   title: string;
@@ -19,17 +20,18 @@ const Input = ({
       content: string;
     }>
   >;
+  errorMessage?: string;
 }) => {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
     id: "name" | "email" | "subject" | "content"
   ) => {
-    setter((current) => {
-      current[id] = e.target.value;
-      // console.log("current", current);
-      return current;
-    });
+    setter((current) => ({
+      ...current,
+      [id]: e.target.value,
+    }));
   };
+
   return (
     <div className="w-full flex flex-col gap-1 md:gap-2">
       <p className="text-xs md:text-sm">{title}</p>
@@ -43,7 +45,7 @@ const Input = ({
           }}
           type="text"
           className="text-xs md:text-sm"
-          //   value={value}
+          value={value}
           placeholder={`Enter your ${id}`}
           onChange={(e) => handleInputChange(e, id)}
           required
@@ -58,7 +60,7 @@ const Input = ({
             boxShadow: "0 2px 6px 0 rgba(255,255,255,0.2)",
           }}
           wrap={"hard"}
-          //   value={value}
+          value={value}
           className="text-xs md:text-sm"
           placeholder={`Enter your ${id}`}
           onChange={(e) => handleInputChange(e, id)}
@@ -66,6 +68,7 @@ const Input = ({
           required
         />
       )}
+      {errorMessage && <p className="text-red-500 text-xs">{errorMessage}</p>}
     </div>
   );
 };
