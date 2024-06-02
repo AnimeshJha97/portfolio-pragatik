@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import BoxBgLarge from "@/assets/box-bg-large.svg";
 import Input from "./Input";
 import {
@@ -12,7 +12,7 @@ import {
   BsFillEnvelopeXFill,
 } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
-import axios from "axios";
+import Loading from "./Loading";
 
 type DataObject = {
   name: string;
@@ -20,6 +20,7 @@ type DataObject = {
   subject: string;
   content: string;
 };
+
 const EmailModal = ({
   setOpenModal,
 }: {
@@ -31,28 +32,52 @@ const EmailModal = ({
     subject: "",
     content: "",
   });
+
+  const [validationErrors, setValidationErrors] = useState<Partial<DataObject>>(
+    {}
+  );
   const [mailSent, setMailSent] = useState(false);
   const [mailRes, setMailRes] = useState(false);
+  const [mailStatus, setMailStatus] = useState(true);
 
   const handleSubmit = async () => {
-    console.log("details", details);
-    // const mailResponse = await axios.post("/api/send-mail", details);
+    // Validate fields before submitting
+    const errors: Partial<DataObject> = {};
+    if (!details.name) {
+      errors.name = "Name is required";
+    }
+    if (!details.email) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(details.email)) {
+      errors.email = "Email is invalid";
+    }
+    if (!details.subject) {
+      errors.subject = "Subject is required";
+    }
+
+    // If there are validation errors, stop submission
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    setMailStatus(false);
+
     const mailResponse = await fetch("/api/send-mail", {
       method: "POST",
       body: JSON.stringify(details),
     });
 
     const resData = await mailResponse.json();
-    console.log("resData", resData);
+    setMailStatus(true);
     setMailSent(true);
     setMailRes(resData.status);
   };
 
   const handleCloseModal = () => {
-    setOpenModal((current) => {
-      return !current;
-    });
+    setOpenModal((current) => !current);
   };
+
   return (
     <div className="fixed left-0 top-0 z-[1000] h-screen overflow-y-scroll w-screen items-center flex justify-center">
       <div
@@ -86,6 +111,7 @@ const EmailModal = ({
               title={"Name"}
               value={details.name}
               setter={setDetails}
+              errorMessage={validationErrors.name}
             />
             <Input
               id={"email"}
@@ -93,13 +119,15 @@ const EmailModal = ({
               title={"Email"}
               value={details.email}
               setter={setDetails}
+              errorMessage={validationErrors.email}
             />
             <Input
               id={"subject"}
               type={"input"}
               title={"Subject"}
-              value={details.email}
+              value={details.subject}
               setter={setDetails}
+              errorMessage={validationErrors.subject}
             />
             <Input
               id={"content"}
@@ -115,7 +143,9 @@ const EmailModal = ({
               >
                 Submit
               </button>
-              {mailSent ? (
+              {!mailStatus ? (
+                <Loading />
+              ) : mailSent ? (
                 <div>
                   {mailRes ? (
                     <BsFillEnvelopeCheckFill className="inline-block duration-300 text-base text-green-400" />

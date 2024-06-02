@@ -6,6 +6,10 @@ const FROM_EMAIL = `${process.env.BREVO_SENDER}`;
 const TO_EMAIL = `${process.env.BREVO_RECIEVER}`;
 const NAME = `${process.env.BREVO_NAME}`;
 
+function isValidEmail(email: string) {
+  const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return pattern.test(email);
+}
 export async function POST(req: Request, res: Response) {
   try {
     var apiInstance = new Brevo.TransactionalEmailsApi();
@@ -14,6 +18,18 @@ export async function POST(req: Request, res: Response) {
 
     const requestObj = await req.json();
     const { name, email, subject, content } = requestObj;
+    if (!name || !email || !subject || !content) {
+      return NextResponse.json({
+        status: false,
+        message: "Please provide all necessary data.",
+      });
+    }
+    if (!isValidEmail(email)) {
+      return NextResponse.json({
+        status: false,
+        message: "Invalid Email ID",
+      });
+    }
     const contentMsg = `
     Name: ${name}rn
     Email: ${email}rn
