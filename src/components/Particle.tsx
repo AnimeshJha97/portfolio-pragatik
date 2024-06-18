@@ -7,7 +7,6 @@ import { Engine } from "tsparticles-engine";
 
 function Particle() {
   const particlesInit = async (main: Engine) => {
-    console.log(main);
     await loadFull(main);
   };
   // const particlesLoaded = (container: any) => {

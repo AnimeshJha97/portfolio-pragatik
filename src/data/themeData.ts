@@ -1,5 +1,5 @@
 const data = {
-  sasuke: {
+  nezuko: {
     body: "",
     eyes: "",
     soundtrack: "",

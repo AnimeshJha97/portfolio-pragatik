@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bgCol: "#0C172A",
-        primary: "#CFADE9",
-        textWhite: "#ECECEC",
-        textLight: "#94A3B8"
+        bgCol: "#0d0600",
+        primary: "#fdacb3",
+        textWhite: "#f2ede8",
+        textLight: "#ccc2bb"
       },
       fontSize: {
         xxs: "12px",

@@ -5,8 +5,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useRecoilState } from "recoil";
 const audioData = [
   {
-    name: "Sasuke",
-    url: "https://res.cloudinary.com/animesh-jha/video/upload/v1692112832/portfolio/sasuke-theme_bae4pv.mp3",
+    name: "Nezuko",
+    url: "https://res.cloudinary.com/animesh-jha/video/upload/v1692112832/portfolio/nezuko-theme_bae4pv.mp3",
   },
   {
     name: "Ryuk",

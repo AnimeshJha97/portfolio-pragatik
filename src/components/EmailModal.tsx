@@ -166,15 +166,15 @@ const EmailModal = ({
             <Image
               className="w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 rounded-full border-[2px] border-white md:p-2"
               src={
-                "https://res.cloudinary.com/animesh-jha/image/upload/v1692628621/portfolio/hero_s60hlt.png"
+                "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718454568/profile_qansub.png"
               }
               width={2048}
               height={2048}
               alt="hero"
             />
-            <p className="text-base md:text-md font-semibold">Animesh Jha</p>
+            <p className="text-base md:text-md font-semibold">Pragati</p>
             <p className="text-textLight text-xs md:text-sm">
-              {"#fullstack_developer #ui_designer"}
+              {"#product_designer #ui/ux_designer"}
             </p>
             <div className="mt-2 flex gap-8 items-center text-white">
               <a href="https://wa.me/+918109876429?text=Hello">
