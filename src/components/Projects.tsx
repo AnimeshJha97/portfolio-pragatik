@@ -4,9 +4,29 @@ import ProjectPreview from "./ProjectPreview";
 import { useRouter } from "next/navigation";
 import SkillBox from "./SkillBox";
 
+interface ProjectData {
+  id: string;
+  name: string;
+  colors: {
+    primary: string;
+    secondary: string;
+  };
+  theme: string;
+  company: string;
+  links: {
+    webLink: string;
+    logo: string;
+    preview: string[];
+  };
+  description: string;
+  projectType: string;
+  roles: string;
+  industryType: string;
+}
+
 const Projects = () => {
   const router = useRouter();
-  const [projectsData, setProjectsData] = useState([]);
+  const [projectsData, setProjectsData] = useState<ProjectData[]>([]);
   useEffect(() => {
     const getAllProjectsData = async () => {
       try {

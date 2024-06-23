@@ -4,15 +4,29 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type Project = {
-  slug: string;
-  title: string;
+interface ProjectData {
+  id: string;
+  name: string;
+  colors: {
+    primary: string;
+    secondary: string;
+  };
+  theme: string;
+  company: string;
+  links: {
+    webLink: string;
+    logo: string;
+    preview: string[];
+  };
   description: string;
-};
+  projectType: string;
+  roles: string;
+  industryType: string;
+}
 
 const CaseStudy = () => {
   const { slug } = useParams() as { slug: string };
-  const [projectData, setProjectData] = useState<Project | null>(null);
+  const [projectData, setProjectData] = useState<ProjectData | null>(null);
 
   useEffect(() => {
     if (slug) {
@@ -22,7 +36,7 @@ const CaseStudy = () => {
             `/api/getAllProjectsData?projectName=${slug}`
           );
           if (res.ok) {
-            const data: Project = await res.json();
+            const data: ProjectData = await res.json();
             setProjectData(data);
           } else {
             console.error("Project not found");
