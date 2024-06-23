@@ -48,7 +48,7 @@ const Nezuko = ({ x, y }: { x: number; y: number }) => {
             className="absolute top-14 left-[-48px] cursor-pointer z-[99]"
           >
             <Image
-              className=""
+              className="pointer-events-none"
               src={Linkedin}
               alt={"ln"}
               width={36}
@@ -56,11 +56,11 @@ const Nezuko = ({ x, y }: { x: number; y: number }) => {
             />
           </Link>
           <Link
-            href="https://Behance.com/AnimeshJha97"
+            href="https://Behance.com/pragatik1"
             className="absolute top-[-48px] left-[35%] cursor-pointer z-[99]"
           >
             <Image
-              className="border-2 border-white rounded-full p-1"
+              className="border-2 border-white rounded-full p-1 pointer-events-none"
               src={Behance}
               alt={"ln"}
               width={36}
@@ -68,11 +68,11 @@ const Nezuko = ({ x, y }: { x: number; y: number }) => {
             />
           </Link>
           <Link
-            href="https://instagram.com/__the_undead_cowboy__"
+            href="https://instagram.com/pragati.__jain"
             className="absolute top-14 right-[-48px] cursor-pointer z-[99]"
           >
             <Image
-              className=""
+              className="pointer-events-none"
               src={Instagram}
               alt={"ln"}
               width={36}
@@ -82,7 +82,7 @@ const Nezuko = ({ x, y }: { x: number; y: number }) => {
         </div>
         <div>
           <Image
-            className="absolute top-[63px] left-[48px] z-10"
+            className="absolute top-[63px] left-[48px] z-10 pointer-events-none"
             id="eye-left"
             style={eyeballsStyle}
             width={36}
@@ -91,7 +91,7 @@ const Nezuko = ({ x, y }: { x: number; y: number }) => {
             alt="Nezuko"
           />
           <Image
-            className="absolute top-[63px] left-[92px] z-10"
+            className="absolute top-[63px] left-[92px] z-10 pointer-events-none"
             id="eye-right"
             style={eyeballsStyle}
             width={36}
@@ -101,7 +101,7 @@ const Nezuko = ({ x, y }: { x: number; y: number }) => {
           />
         </div>
         <Image
-          className="relative z-20"
+          className="relative z-20 pointer-events-none"
           id="eyes-container"
           width={180}
           height={180}

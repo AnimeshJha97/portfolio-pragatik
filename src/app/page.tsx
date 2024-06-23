@@ -1,20 +1,9 @@
 "use client";
-import NextIcon from "@/assets/next-arrow.svg";
-import PrevIcon from "@/assets/prev-arrow.svg";
-import Typed from "react-typed";
-
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { useRecoilState } from "recoil";
-import { storePage } from "./recoil/atoms/storePage";
-import Title from "@/components/Title";
 import Nezuko from "@/components/Nezuko";
 import ContactMe from "@/components/ContactMe";
 import EmailModal from "@/components/EmailModal";
 import { Triangle } from "react-loader-spinner";
-import SkillBox from "@/components/SkillBox";
 import Intro from "@/components/Intro";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
@@ -30,14 +19,6 @@ export default function Home() {
     page2: useRef<HTMLDivElement>(null),
     page3: useRef<HTMLDivElement>(null),
   };
-
-  const pageRoute = {
-    prev: 0,
-    current: 1,
-    next: 2,
-  };
-
-  const roles = ["User Interface Designer", "User Experience Designer"];
 
   const menuOptions = [
     {
@@ -84,42 +65,18 @@ export default function Home() {
   };
   // useStates
   const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
-  const [page, setPage] = useRecoilState(storePage);
   const [selectedMenuOption, setSelectedMenuOption] = useState(
     menuOptions[0].id
   );
-  const [motionConfig, setMotionConfig] = useState({
-    initial: { opacity: 0, x: 0 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: 0 },
-    transition: { duration: 1 },
-  });
+
   const [isLoading, setIsLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
-
-  useEffect(() => {
-    let config = {
-      initial: { opacity: 0, x: 0 },
-      animate: { opacity: 1, x: 0 },
-      exit: { opacity: 0, x: 0 },
-      transition: { duration: 1 },
-    };
-    if (page === pageRoute.next) {
-      config.initial = { opacity: 0, x: -200 };
-      config.animate = { opacity: 1, x: 0 };
-      config.exit = { opacity: 0, x: 200 };
-      config.transition = { duration: 0.5 };
-    }
-    setMotionConfig(config);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    return;
-  }, [page]);
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 50);
+    }, 5000);
   }, []);
 
   useEffect(() => {
@@ -207,82 +164,75 @@ export default function Home() {
           />
         </div>
       ) : (
-        <motion.div
-          initial={motionConfig.initial}
-          animate={motionConfig.animate}
-          exit={motionConfig.exit}
-          transition={motionConfig.transition}
+        <div
+          className="duration-300 relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 h-screen overflow-hidden justify-center items-center pt-16 !select-none"
+          onMouseMove={handleMouseMove}
         >
-          <div
-            className="duration-300 relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 min-h-screen overflow-y-scroll justify-center items-center p-sm pt-16 md:p-md lg:p-lg select-none"
-            onMouseMove={handleMouseMove}
-          >
-            {/* content */}
-            <div className="text-textLight flex flex-col mt-12 md:mt-0 gap-4 md:flex-row md:items-center justify-between relative z-[2] w-full">
-              {/* left */}
-              <div className="h-[90vh] flex items-center flex-1 lg:flex-[0.25]">
-                <div className="flex flex-col gap-8 w-full">
-                  {menuOptions.map((option) => (
+          {/* content */}
+          <div className="text-textLight flex flex-col mt-12 md:mt-0 gap-4 md:flex-row md:items-center justify-between relative z-[2] w-full">
+            {/* left */}
+            <div className="flex items-center flex-1 lg:flex-[0.2] pl-[128px]">
+              <div className="flex flex-col gap-8 w-full">
+                {menuOptions.map((option) => (
+                  <div
+                    key={option.id}
+                    className="flex gap-4 items-center justify-normal group cursor-pointer max-w-[700px]"
+                    onClick={(e) => handleMenuOptionClick(e, option.id)}
+                  >
                     <div
-                      key={option.id}
-                      className="flex gap-4 items-center justify-normal group cursor-pointer max-w-[700px]"
-                      onClick={(e) => handleMenuOptionClick(e, option.id)}
+                      className={
+                        selectedMenuOption === option.id
+                          ? "h-[1px] duration-300 w-8 md:w-12 bg-textWhite"
+                          : "h-[1px] w-6 md:w-6 duration-300 group-hover:w-12 group-hover:bg-textWhite bg-textLight"
+                      }
+                    />
+                    <p
+                      className={
+                        selectedMenuOption === option.id
+                          ? "text-xs md:text-md text-textWhite"
+                          : "text-xs md:text-md group-hover:text-textWhite"
+                      }
                     >
-                      <div
-                        className={
-                          selectedMenuOption === option.id
-                            ? "h-[1px] duration-300 w-8 md:w-12 bg-textWhite"
-                            : "h-[1px] w-6 md:w-6 duration-300 group-hover:w-12 group-hover:bg-textWhite bg-textLight"
-                        }
-                      />
-                      <p
-                        className={
-                          selectedMenuOption === option.id
-                            ? "text-xs md:text-md text-textWhite"
-                            : "text-xs md:text-md group-hover:text-textWhite"
-                        }
-                      >
-                        {option.name}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              {/* right */}
-              <div className="flex flex-col gap-2 md:gap-4 md:flex-[0.95] lg:flex-[0.6]">
-                <div className="ml-6 flex flex-col gap-2 lg:gap-12 text-xs md:text-sm h-[800px] overflow-y-scroll">
-                  <div
-                    ref={sectionRefs["page1"]}
-                    key={"page1"}
-                    className="w-full"
-                  >
-                    <Intro />
+                      {option.name}
+                    </p>
                   </div>
-                  <div
-                    ref={sectionRefs["page2"]}
-                    key={"page2"}
-                    className="w-full"
-                  >
-                    <Experience />
-                  </div>
-                  <div
-                    ref={sectionRefs["page3"]}
-                    key={"page3"}
-                    className="w-full"
-                  >
-                    <Projects />
-                  </div>
-                </div>
-                {/* {selectedMenuOption === "page1" && (
-                )} */}
+                ))}
               </div>
             </div>
-            {/* nezuko img & social icons */}
-            <Nezuko x={mouseCoordinates.x} y={mouseCoordinates.y} />
-            <ContactMe handleModalOpen={handleModalOpen} />
-            {openModal ? <EmailModal setOpenModal={setOpenModal} /> : null}
+            {/* right */}
+            <div className="flex flex-col gap-2 md:gap-4 md:flex-1 h-[860px] overflow-y-scroll items-center">
+              <div className="ml-6 flex flex-col gap-2 lg:gap-12 text-xs md:text-sm pr-[160px] pl-[120px]">
+                <div
+                  ref={sectionRefs["page1"]}
+                  key={"page1"}
+                  className="w-full"
+                >
+                  <Intro />
+                </div>
+                <div
+                  ref={sectionRefs["page2"]}
+                  key={"page2"}
+                  className="w-full"
+                >
+                  <Experience />
+                </div>
+                <div
+                  ref={sectionRefs["page3"]}
+                  key={"page3"}
+                  className="w-full"
+                >
+                  <Projects />
+                </div>
+              </div>
+              {/* {selectedMenuOption === "page1" && (
+                )} */}
+            </div>
           </div>
-        </motion.div>
+          {/* nezuko img & social icons */}
+          <Nezuko x={mouseCoordinates.x} y={mouseCoordinates.y} />
+          <ContactMe handleModalOpen={handleModalOpen} />
+          {openModal ? <EmailModal setOpenModal={setOpenModal} /> : null}
+        </div>
       )}
     </main>
   );

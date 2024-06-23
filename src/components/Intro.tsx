@@ -6,7 +6,7 @@ const Intro = () => {
   const roles = ["User Interface Designer", "User Experience Designer"];
 
   return (
-    <div className="ml-4 md:ml-10 md:mb-20 flex flex-col items-center justify-center h-[800px]">
+    <div className="ml-4 md:ml-10 md:mb-16 md:pt-4 flex flex-col items-center justify-center h-[800px] !pointer-events-none">
       <div className="flex gap-8 items-center justify-center">
         <Image
           className="w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 rounded-full border-[2px] border-white md:p-2"
