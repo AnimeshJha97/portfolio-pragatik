@@ -179,16 +179,16 @@ const Hamburger = ({
             </div>
             <div>
               <Image
-                className="absolute top-[47px] left-[36px] z-10 pointer-events-none"
-                width={28}
-                height={28}
+                className="absolute top-[45px] left-[36px] z-10 pointer-events-none"
+                width={30}
+                height={30}
                 src={NezukoEyes}
                 alt="Nezuko"
               />
               <Image
-                className="absolute top-[47px] left-[71px] z-10 pointer-events-none"
-                width={28}
-                height={28}
+                className="absolute top-[45px] left-[71px] z-10 pointer-events-none"
+                width={30}
+                height={30}
                 src={NezukoEyes}
                 alt="Nezuko"
               />
