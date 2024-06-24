@@ -92,12 +92,19 @@ const Projects = () => {
               {/* button component */}
               <div>
                 <div className="flex gap-4">
-                  <button
+                  {/* <button
                     className="border-1 border-white rounded-md mt-2 w-[160px] md:w-[200px]"
                     onClick={() => handleCaseStudyButtonClick(project.name)}
                   >
                     <SkillBox skill={"Website"} isButton={true} />
-                  </button>
+                  </button> */}
+                  <a
+                    href={project.links.webLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <SkillBox skill={"Website"} isButton={true} />
+                  </a>
                   {/* <button
                   className="w-[200px]"
                   onClick={() => handleCaseStudyButtonClick(project.name)}
