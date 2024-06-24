@@ -14,10 +14,10 @@ const projects = [
     company: "LMG8",
     links: {
       webLink: "https://www.myhraki.com/",
-      logo: "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718691145/myhraki-logo_ezvqr5.png",
+      logo: "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209957/myhraki-logo_ezvqr5-min_nkh39b.png",
       preview: [
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718691149/Myhraki_ftg9xr.png",
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719139327/Myhraki-Dashboard_aalsti.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209962/Myhraki_ftg9xr-min_onpjrn.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209959/Myhraki-Dashboard_aalsti-min_u33lf6.png",
       ],
     },
     description: "Small business authentic store",
@@ -38,10 +38,10 @@ const projects = [
       webLink: "https://xystcare.com/",
       logo: "",
       preview: [
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719087861/XystCare1_dh1ee2.png",
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719087145/XystCare-Desktop-HOME_juxdw4.png",
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719087146/XystCare-Desktop-Product_ilgglb.png",
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719087142/XystCare-Desktop-Product_List_hltrrf.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209059/XystCare1_dh1ee2-min_h1y245.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209058/XystCare-Desktop-HOME_juxdw4-min_zhv2bm.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209058/XystCare-Desktop-Product_ilgglb-min_j1wx3h.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209056/XystCare-Desktop-Product_List_hltrrf-min_muaesj.png",
       ],
     },
     description: "Authentic Derma Certified Store",
@@ -60,11 +60,11 @@ const projects = [
     company: "LMG8",
     links: {
       webLink: "https://www.thehopegroup.co.in/",
-      logo: "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718967443/LMG8_1_okjidh.png",
+      logo: "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209774/LMG8_1_okjidh-min_awptxw.png",
       preview: [
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718967658/LMG8_Landing_Page_wvo56n.png",
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718967399/About_Us_miav4p.png",
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718967399/LMG8_Landing_Page-1_t1mynj.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209776/LMG8_Landing_Page_wvo56n-min_jniaaq.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209777/LMG8_Landing_Page-1_t1mynj-min_yrqdml.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209779/About_Us_miav4p-min_xt3ut2.png",
       ],
     },
     description: "Transforming the future with technology-driven solutions",
@@ -83,11 +83,11 @@ const projects = [
     company: "LMG8",
     links: {
       webLink: "https://www.thehopegroup.co.in/",
-      logo: "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718976311/Hope-Logo_kwxd67.png",
+      logo: "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209895/Hope-Logo_kwxd67-min_w7lduv.png",
       preview: [
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718965452/Hope-_Home_Page_ktqyap.jpg",
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718965450/Live_work_Permanently_umzkgw.png",
-        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718965449/Contact_Us_rhoshh.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209899/Hope-_Home_Page_ktqyap-min_lnhvro.jpg",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209901/Live_work_Permanently_umzkgw-min_c0widj.png",
+        "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209897/Contact_Us_rhoshh-min_lhlp3h.png",
       ],
     },
     description: "Education and Migration Website",
@@ -95,6 +95,30 @@ const projects = [
     roles: "UI/UX designer",
     industryType: "Education + Migration",
   },
+
+  // {
+  //   id: "Ally",
+  //   name: "Ally",
+  //   colors: {
+  //     primary: "#096FB9",
+  //     secondary: "#FFF7F1",
+  //   },
+  //   theme: "light",
+  //   company: "LMG8",
+  //   links: {
+  //     webLink: "",
+  //     logo: "",
+  //     preview: [
+  //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209453/Ally_Admin_mfllw5-min_vpegzw.png",
+  //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209452/Ally_ryk0gq-min_cufdau.png",
+  //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209897/Contact_Us_rhoshh-min_lhlp3h.png",
+  //     ],
+  //   },
+  //   description: "Human Resource Management System",
+  //   projectType: "End-to-end Admin Dashboard",
+  //   roles: "UI/UX designer + Requirement Analyzer",
+  //   industryType: "Human Resource",
+  // },
 ];
 
 export async function GET(req: NextRequest) {

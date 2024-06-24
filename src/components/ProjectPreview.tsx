@@ -56,8 +56,8 @@ const ProjectPreview = ({ images, theme, colors }: ProjectPreviewParams) => {
             animate ? (isNext ? "translate-x-full" : "-translate-x-full") : ""
           }`}
           src={images[selectedImage]}
-          height={1024}
-          width={1024}
+          height={480}
+          width={480}
           alt={"bg-large"}
           key={selectedImage} // Force re-render to trigger animation
         />
