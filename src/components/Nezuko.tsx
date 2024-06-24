@@ -40,7 +40,7 @@ const Nezuko = ({ x, y }: { x: number; y: number }) => {
     }px)`,
   };
   return (
-    <div className="relative w-auto md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12 z-[99]">
+    <div className="relative w-auto md:absolute md:bottom-2 md:left-14 p-sm pb-0 md:p-md md:pb-0 lg:p-lg lg:pb-0 mt-12 z-[1]">
       <div className="relative z-[99]">
         <div>
           <Link

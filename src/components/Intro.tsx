@@ -6,10 +6,10 @@ const Intro = () => {
   const roles = ["User Interface Designer", "User Experience Designer"];
 
   return (
-    <div className="ml-4 md:ml-10 md:mb-16 md:pt-4 flex flex-col items-center justify-center h-[800px] !pointer-events-none">
-      <div className="flex gap-8 items-center justify-center">
+    <div className="pl-4 md:pl-10 md:mb-16 md:pt-4 flex flex-col items-center justify-center h-[80vh] md:h-[800px] !pointer-events-none">
+      <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
         <Image
-          className="w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 rounded-full border-[2px] border-white md:p-2"
+          className="w-40 h-40 md:w-40 md:h-40 lg:w-52 lg:h-52 rounded-full border-[2px] border-white md:p-2"
           src={
             "https://res.cloudinary.com/dwxylnkvd/image/upload/v1718454568/profile_qansub.png"
           }
@@ -17,22 +17,22 @@ const Intro = () => {
           height={2048}
           alt="hero"
         />
-        <div>
-          <p className="text-md md:text-lg lg:text-xxl mb-1 md:mb-0 font-medium text-textWhite md:w-[276px]">
+        <div className="flex flex-col justify-center items-center">
+          <p className="text-md md:text-lg lg:text-xxl mb-1 md:mb-0 font-medium text-textWhite">
             Pragati
           </p>
           {/* <p className={styles.content_left_subtitle}>
                                 Full Stack Web Developer
                             </p> */}
           <ReactTyped
-            className="text-sm md:text-base lg:text-md font-[400] text-primary"
+            className="text-[20px] md:text-base lg:text-md font-[400] text-primary md:w-[276px]"
             strings={roles}
             typeSpeed={140}
             loop
           />
         </div>
       </div>
-      <p className="text-xs md:text-md mt-2 md:mt-3 font-[300]">
+      <p className="text-sm md:text-md mt-2 md:mt-3 font-[300] text-center md:text-left">
         Bridging the Gap Between Users and Technology Through Design.
       </p>
     </div>

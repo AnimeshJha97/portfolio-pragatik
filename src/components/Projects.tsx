@@ -48,11 +48,11 @@ const Projects = () => {
     router.push(`/CaseStudy/${slug}`);
   };
   return (
-    <div className=" md:mb-16 md:pt-4 grid grid-cols-2 gap-6 lg:gap-10 text-xs md:text-sm h-full md:overflow-x-hidden md:pb-[160px] !select-none">
+    <div className="md:mb-16 pt-20 md:pt-4 grid grid-cols-1 md:grid-cols-2 gap-10 text-xs md:text-sm h-full md:overflow-x-hidden pb-[160px] !select-none">
       {projectsData.map((project, i) => (
         <div
           key={project.id}
-          className="flex flex-col rounded-lg mr-2 h-[800px] justify-between"
+          className="flex flex-col gap-4 md:gap-0 rounded-lg md:mr-2 md:h-[800px] md:justify-between"
         >
           <div>
             <ProjectPreview
@@ -72,17 +72,17 @@ const Projects = () => {
                       ? project.colors.primary
                       : project.colors.secondary,
                 }}
-                className="text-lg font-semibold flex items-center"
+                className="text-base md:text-lg font-bold md:font-semibold flex items-center"
               >
                 {project.name}
               </p>
             </a>
-            <p className="text-md font-semibold mb-3 mt-2">
+            <p className="text-sm md:text-md font-semibold mb-2 mt-1 md:mb-3 md:mt-2">
               {project.description}
             </p>
           </div>
           <div>
-            <div className="flex flex-1 flex-col gap-3 justify-between h-[204px]">
+            <div className="flex flex-1 flex-col gap-3 justify-between md:h-[204px]">
               {/* project details */}
               <div className="flex flex-col gap-3">
                 <p>Project Type: {project.projectType}</p>
@@ -93,7 +93,7 @@ const Projects = () => {
               <div>
                 <div className="flex gap-4">
                   <button
-                    className="border-1 border-white rounded-md w-[200px]"
+                    className="border-1 border-white rounded-md mt-2 w-[160px] md:w-[200px]"
                     onClick={() => handleCaseStudyButtonClick(project.name)}
                   >
                     <SkillBox skill={"Website"} isButton={true} />
@@ -105,7 +105,7 @@ const Projects = () => {
                   <SkillBox skill={"Case Study"} isButton={true} />
                 </button> */}
                 </div>
-                <div className="w-full h-[2px] bg-textLight opacity-30 mt-2 lg:mt-4" />
+                <div className="w-full h-[2px] bg-textLight opacity-30 mt-4" />
               </div>
             </div>
           </div>

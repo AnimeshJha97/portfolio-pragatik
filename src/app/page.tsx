@@ -7,6 +7,7 @@ import { Triangle } from "react-loader-spinner";
 import Intro from "@/components/Intro";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
+import Hamburger from "@/components/Hamburger";
 
 interface SectionRefs {
   [key: string]: React.RefObject<HTMLDivElement>;
@@ -152,26 +153,46 @@ export default function Home() {
   return (
     <main>
       {isLoading ? (
-        <div className="flex flex-col min-h-screen justify-center items-center">
-          <Triangle
-            visible={true}
-            height="160"
-            width="160"
-            color="#fdacb3"
-            ariaLabel="triangle-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
+        <div className="flex flex-col h-[95vh] md:min-h-screen justify-center items-center">
+          <div className="hidden md:block">
+            <Triangle
+              visible={true}
+              height="160"
+              width="160"
+              color="#fdacb3"
+              ariaLabel="triangle-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
+          <div className="block md:hidden">
+            <Triangle
+              visible={true}
+              height="120"
+              width="120"
+              color="#fdacb3"
+              ariaLabel="triangle-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
         </div>
       ) : (
         <div
-          className="duration-300 relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 h-screen overflow-hidden justify-center items-center pt-16 !select-none"
+          className="duration-300 relative flex flex-col ml-6 mr-6 md:ml-0 md:mr-0 h-full md:h-[98vh] overflow-hidden justify-center items-center pt-4 md:pt-16 p-8 md:p-0 !select-none"
           onMouseMove={handleMouseMove}
         >
           {/* content */}
-          <div className="text-textLight flex flex-col mt-12 md:mt-0 gap-4 md:flex-row md:items-center justify-between relative z-[2] w-full">
+          <div className="text-textLight flex flex-col mt-12 md:mt-0 gap-4 md:flex-row md:items-center justify-between relative w-full">
             {/* left */}
-            <div className="flex items-center flex-1 lg:flex-[0.2] pl-[128px]">
+            <div className="md:hidden fixed top-0 left-0 w-full h-10 flex items-center justify-center z-[2]">
+              <Hamburger
+                handleMenuOptionClick={handleMenuOptionClick}
+                menuOptions={menuOptions}
+                selectedMenuOption={selectedMenuOption}
+              />
+            </div>
+            <div className="hidden md:flex md:items-center lg:flex-[0.2] pl-0 md:pl-[128px]">
               <div className="flex flex-col gap-8 w-full">
                 {menuOptions.map((option) => (
                   <div
@@ -182,14 +203,14 @@ export default function Home() {
                     <div
                       className={
                         selectedMenuOption === option.id
-                          ? "h-[1px] duration-300 w-8 md:w-12 bg-textWhite"
-                          : "h-[1px] w-6 md:w-6 duration-300 group-hover:w-12 group-hover:bg-textWhite bg-textLight"
+                          ? "h-[1px] duration-300 w-8 md:w-20 bg-primary group-hover:bg-primary"
+                          : "h-[1px] w-6 md:w-6 duration-300 group-hover:w-20 group-hover:bg-textLight bg-textLight"
                       }
                     />
                     <p
                       className={
                         selectedMenuOption === option.id
-                          ? "text-xs md:text-md text-textWhite"
+                          ? "text-xs md:text-md text-primary group-hover:text-primary"
                           : "text-xs md:text-md group-hover:text-textWhite"
                       }
                     >
@@ -200,8 +221,8 @@ export default function Home() {
               </div>
             </div>
             {/* right */}
-            <div className="flex flex-col gap-2 md:gap-4 md:flex-1 h-[860px] overflow-y-scroll items-center">
-              <div className="ml-6 flex flex-col gap-2 lg:gap-12 text-xs md:text-sm pr-[160px] pl-[120px]">
+            <div className="flex flex-col h-full md:flex-1  md:h-[860px] overflow-y-scroll items-center z-[1]">
+              <div className="md:ml-6 flex flex-col gap-2 lg:gap-12 text-xs md:text-sm  md:pr-[160px] md:pl-[120px]">
                 <div
                   ref={sectionRefs["page1"]}
                   key={"page1"}

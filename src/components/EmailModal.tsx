@@ -177,13 +177,13 @@ const EmailModal = ({
               {"#product_designer #ui/ux_designer"}
             </p>
             <div className="mt-2 flex gap-8 items-center text-white">
-              <a href="https://wa.me/+918109876429?text=Hello">
+              <a href="https://wa.me/+918123342761?text=Hello">
                 <BsWhatsapp className="hover:text-primary text-base md:text-md" />
               </a>
-              <a href="https://www.linkedin.com/in/jha-animesh/">
+              <a href="https://www.linkedin.com/in/pragati-k-1b6b82187/">
                 <BsLinkedin className="hover:text-primary text-base md:text-md" />
               </a>
-              <a href="https://instagram.com/__the_undead_cowboy__">
+              <a href="https://instagram.com/pragati.__jain">
                 <BsInstagram className="hover:text-primary text-base md:text-md" />
               </a>
             </div>

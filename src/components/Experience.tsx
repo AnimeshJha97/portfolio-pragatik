@@ -33,7 +33,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <div className="ml-4 md:ml-10 md:mb-16 md:pt-4 flex flex-col gap-6 lg:gap-10 text-xs md:text-sm h-full md:overflow-x-hidden md:pb-[160px]">
+    <div className="ml-4 md:ml-10 md:mb-16 pt-14 md:pt-4 flex flex-col gap-6 lg:gap-10 text-xs md:text-sm h-full md:overflow-x-hidden pb-[160px] !z-[99]">
       {workData &&
         workData?.map((work, i) => (
           <div key={work.name}>

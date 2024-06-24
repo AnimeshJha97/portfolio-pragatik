@@ -48,9 +48,9 @@ const ProjectPreview = ({ images, theme, colors }: ProjectPreviewParams) => {
 
   return (
     <div
-      className={`relative w-full border-[1px] h-[440px] flex items-center justify-center border-white rounded-lg mb-4 pr-3 pl-3 pt-4 pb-1 overflow-hidden`}
+      className={`relative w-full border-[1px] h-[300px] md:h-[440px] flex items-center justify-center border-white rounded-lg mb-4 pr-3 pl-3 pt-4 pb-1 overflow-hidden z-[1]`}
     >
-      <div className="rounded-t-lg h-[420px] overflow-x-scroll relative">
+      <div className="rounded-t-lg h-[280px] md:h-[420px] overflow-x-scroll relative z-[1]">
         <Image
           className={`object-cover transition-transform duration-300 ${
             animate ? (isNext ? "translate-x-full" : "-translate-x-full") : ""
