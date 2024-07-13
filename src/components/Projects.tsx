@@ -48,11 +48,11 @@ const Projects = () => {
     router.push(`/CaseStudy/${slug}`);
   };
   return (
-    <div className="md:mb-16 pt-20 md:pt-4 grid grid-cols-1 md:grid-cols-2 gap-10 text-xs md:text-sm h-full md:overflow-x-hidden pb-[160px] !select-none">
+    <div className="lg:mb-16 pt-20 md:pt-4 grid grid-cols-1 xl:grid-cols-2 gap-10 text-xs md:text-sm h-full md:overflow-x-hidden pb-20 lg:pb-40 !select-none">
       {projectsData.map((project, i) => (
         <div
           key={project.id}
-          className="flex flex-col gap-4 md:gap-0 rounded-lg md:mr-2 md:h-[800px] md:justify-between"
+          className="flex flex-col gap-4 md:gap-0 rounded-lg md:mr-2 xl:h-[800px] xl:justify-between max-w-[500px]"
         >
           <div>
             <ProjectPreview
@@ -72,7 +72,7 @@ const Projects = () => {
                       ? project.colors.primary
                       : project.colors.secondary,
                 }}
-                className="text-base md:text-lg font-bold md:font-semibold flex items-center"
+                className="text-base md:text-md xl:text-lg font-bold md:font-semibold flex items-center"
               >
                 {project.name}
               </p>

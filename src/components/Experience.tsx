@@ -37,9 +37,9 @@ const Experience = () => {
       {workData &&
         workData?.map((work, i) => (
           <div key={work.name}>
-            <div className="flex flex-col md:flex-row items-start md:gap-8 gap-1">
+            <div className="flex flex-col xl:flex-row items-start xl:gap-8 gap-1">
               {/* duration */}
-              <div className="flex gap-2 items-center pt-2">
+              <div className="text-xs xl:text-base flex gap-2 items-center">
                 {work.year.from} <div className="h-[1px] w-4 bg-textLight" />{" "}
                 {work.year.to}
               </div>
@@ -47,17 +47,22 @@ const Experience = () => {
               <div className="flex flex-col gap-2">
                 {/* company title */}
                 <div>
-                  <p className="text-sm md:text-md text-textWhite font-bold">
+                  <p className="text-base xl:text-md text-textWhite font-bold">
                     {work.name}
                   </p>
-                  <p className="text-textWhite">{work.subTitle}</p>
+                  <p className="text-xs xl:text-base text-textWhite">
+                    {work.subTitle}
+                  </p>
                 </div>
                 {/* points */}
                 <div className="flex flex-col gap-2">
                   {work.points.map((point, i: number) => (
-                    <div key={i} className="flex gap-4 items-center">
-                      <div className=" w-2 h-2 bg-textLight rounded-full" />
-                      <p className="flex-1">{point}</p>
+                    <div
+                      key={i}
+                      className="flex gap-4 items-center md:items-start"
+                    >
+                      <div className="w-1 h-1 md:w-2 md:h-2 md:mt-[9px] bg-textLight rounded-full" />
+                      <p className="flex-1 text-xxs md:text-sm">{point}</p>
                     </div>
                   ))}
                 </div>

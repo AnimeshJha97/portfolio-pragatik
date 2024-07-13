@@ -96,7 +96,7 @@ const Hamburger = ({
         onClick={closeMenu}
       ></div>
       <div
-        className={`fixed flex flex-col gap-20 pt-12 pl-6 top-0 left-0 w-3/4 md:w-1/3 h-screen bg-black shadow-lg z-[999] p-4 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed flex flex-col gap-20 pt-12 pl-6 md:pl-12 top-0 left-0 w-3/4 md:w-2/4 lg:w-1/3 h-screen bg-black shadow-lg z-[999] p-4 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -137,7 +137,7 @@ const Hamburger = ({
           ))}
         </div>
         {/* nezuko */}
-        <div className="md:hidden absolute bottom-4 w-full flex justify-center">
+        <div className="xl:hidden absolute bottom-4 left-12 w-full flex justify-center max-w-[200px] bg-blue-400">
           <div className="relative z-[99]">
             <div>
               <Link
