@@ -137,7 +137,7 @@ const Hamburger = ({
           ))}
         </div>
         {/* nezuko */}
-        <div className="xl:hidden absolute bottom-4 left-12 w-full flex justify-center max-w-[200px] bg-blue-400">
+        <div className="xl:hidden absolute bottom-4 left-12 w-full flex justify-center max-w-[200px]">
           <div className="relative z-[99]">
             <div>
               <Link

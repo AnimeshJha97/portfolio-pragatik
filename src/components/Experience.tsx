@@ -62,7 +62,7 @@ const Experience = () => {
                       className="flex gap-4 items-center md:items-start"
                     >
                       <div className="w-1 h-1 md:w-2 md:h-2 md:mt-[9px] bg-textLight rounded-full" />
-                      <p className="flex-1 text-xxs md:text-sm">{point}</p>
+                      <p className="flex-1 text-xs md:text-sm">{point}</p>
                     </div>
                   ))}
                 </div>
