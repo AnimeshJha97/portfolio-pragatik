@@ -52,7 +52,7 @@ const Projects = () => {
       {projectsData.map((project, i) => (
         <div
           key={project.id}
-          className="flex flex-col gap-4 md:gap-0 rounded-lg md:mr-2 xl:h-[800px] xl:justify-between max-w-[500px]"
+          className="flex flex-col gap-4 md:gap-0 rounded-lg md:mr-2 xl:h-[740px] xl:justify-between max-w-[500px]"
         >
           <div>
             <ProjectPreview

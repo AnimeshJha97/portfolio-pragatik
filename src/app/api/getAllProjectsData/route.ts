@@ -59,7 +59,7 @@ const projects = [
     theme: "dark",
     company: "LMG8",
     links: {
-      webLink: "https://www.thehopegroup.co.in/",
+      webLink: "https://www.lmg8.tech/",
       logo: "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209774/LMG8_1_okjidh-min_awptxw.png",
       preview: [
         "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209776/LMG8_Landing_Page_wvo56n-min_jniaaq.png",
@@ -80,7 +80,7 @@ const projects = [
       secondary: "#FFF7F1",
     },
     theme: "light",
-    company: "LMG8",
+    company: "HOPE",
     links: {
       webLink: "https://www.thehopegroup.co.in/",
       logo: "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209895/Hope-Logo_kwxd67-min_w7lduv.png",
@@ -95,7 +95,6 @@ const projects = [
     roles: "UI/UX designer",
     industryType: "Education + Migration",
   },
-
   // {
   //   id: "Ally",
   //   name: "Ally",
@@ -104,18 +103,19 @@ const projects = [
   //     secondary: "#FFF7F1",
   //   },
   //   theme: "light",
-  //   company: "LMG8",
+  //   company: "Ally",
   //   links: {
   //     webLink: "",
   //     logo: "",
   //     preview: [
-  //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209453/Ally_Admin_mfllw5-min_vpegzw.png",
+  //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719255070/Device_14PM-1_ndwppt.png",
+  //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719255074/Device_14PM_qwq0ia.png",
   //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209452/Ally_ryk0gq-min_cufdau.png",
-  //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1719209897/Contact_Us_rhoshh-min_lhlp3h.png",
+  //       "https://res.cloudinary.com/dwxylnkvd/image/upload/v1723615260/Frame_1000001718_gyuelq.png",
   //     ],
   //   },
   //   description: "Human Resource Management System",
-  //   projectType: "End-to-end Admin Dashboard",
+  //   projectType: "End-to-end Admin Dashboard, Mobile Application",
   //   roles: "UI/UX designer + Requirement Analyzer",
   //   industryType: "Human Resource",
   // },
